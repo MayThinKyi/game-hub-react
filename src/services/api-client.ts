@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { AxiosDataResponse, GameQuery } from "../types/types";
+import { AxiosDataResponse } from "../types/types";
 
 const axiosInstance=axios.create({
     baseURL:'https://api.rawg.io/api',
@@ -17,5 +17,10 @@ export class ApiClient<T>{
         const res = await axiosInstance.get<AxiosDataResponse<T>>(this.endpoint,{...config});
         const data = res.data;
         return data.results;
+     };
+    get=async ()=>{
+        const res = await axiosInstance.get<T>(this.endpoint);
+        const data = res.data;
+        return data;
      };
 }

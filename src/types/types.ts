@@ -19,6 +19,12 @@ export type Platform={
     slug:string;
 }
 
+export type Publisher={
+    id:number;
+    name:string;
+    slug:string;
+}
+
 export type Game={
     id:number;
     name:string;
@@ -29,6 +35,13 @@ export type Game={
     metacritic:number;
     parent_platforms:[ {platform:Platform}];
     genres:Genre[];
+    description_raw:string;
+    publishers:Publisher[];
+}
+
+export type Screenshot={
+    id:number;
+    image:string;
 }
 
 export type AxiosDataResponse<T>={

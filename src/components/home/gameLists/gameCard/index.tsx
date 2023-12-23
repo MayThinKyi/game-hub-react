@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import imgUrl from "../../../../services/img-url";
 import { Game } from "../../../../types/types";
 import Emoji from "./Emoji";
@@ -11,7 +12,7 @@ type Props = {
 const GameCard = ({game}: Props) => {
   
   return (
-    <div className='rounded-xl border dark:border-0 cursor-pointer hover:scale-110 transition-all shadow-sm hover:shadow-lg'>
+    <Link to={`/games/${game.id}`} className='rounded-xl border dark:border-0 cursor-pointer hover:scale-110 transition-all shadow-sm hover:shadow-lg'>
         <img className='rounded-t-xl w-full lg:max-h-[153px] object-cover' src={imgUrl(game?.background_image)} alt={game.name} />
         <div className="p-3">
         <div className="flex items-center justify-between">
@@ -25,7 +26,7 @@ const GameCard = ({game}: Props) => {
             <h1 className='text-2xl font-bold'>{game?.name}</h1>
             <Emoji rating={game?.rating_top} />
         </div>
-    </div>
+    </Link>
   )
 }
 
